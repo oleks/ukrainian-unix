@@ -6,13 +6,13 @@ while [ $# -gt 0 ]; do
   case "$1" in
   -м) ;&
   --модальність)
-    CMD=$CMD -m $2
+    CMD="$CMD -m $2"
     shift
     shift
     ;;
   -б) ;&
   --батьки)
-    CMD=$CMD -p
+    CMD="$CMD -p"
     shift
     ;;
   -с) ;&
