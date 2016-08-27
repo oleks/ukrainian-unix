@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+CMD="pwd"
+
+while [ $# -gt 0 ]; do
+  case "$1" in
+  -Л) ;&
+  --логічно)
+    CMD=$CMD -L
+    shift
+    ;;
+  -Ф) ;&
+  --фізично)
+    CMD=$CMD -P
+    shift
+    ;;
+  --поміч)
+    CMD="$CMD --help"
+    shift
+    ;;
+  --версія)
+    CMD="$CMD --version"
+    shift
+    ;;
+  *)
+    break
+    ;;
+  esac
+done
+
+$CMD $*
