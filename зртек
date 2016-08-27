@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+CMD="mkdir"
+
+while [ $# -gt 0 ]; do
+  case "$1" in
+  -м) ;&
+  --модальність)
+    CMD=$CMD -m $2
+    shift
+    shift
+    ;;
+  -б) ;&
+  --батьки)
+    CMD=$CMD -p
+    shift
+    ;;
+  -с) ;&
+  --словесно)
+    CMD="$CMD -v"
+    shift
+    ;;
+  --поміч)
+    CMD="$CMD --help"
+    shift
+    ;;
+  --версія)
+    CMD="$CMD --version"
+    shift
+    ;;
+  *)
+    break
+    ;;
+  esac
+done
+
+$CMD $*
